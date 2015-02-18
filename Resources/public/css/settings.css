@@ -1,0 +1,19 @@
+.tree {
+    
+}
+
+.tree .tree-branch {
+    
+}
+
+.tree .tree-branch .tree-branch-children {
+    display: none;
+}
+
+.tree .tree-branch.tree-open .tree-branch-children{
+    display: block;   
+}
+
+.tree .tree-branch.error .tree-branch-children{
+    display: block;   
+}

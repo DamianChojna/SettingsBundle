@@ -1,0 +1,5 @@
+services:
+    dt_settings.form.type.choice_tree:
+        class: Dt\SettingsBundle\Form\Type\ChoiceTreeType
+        tags:
+            - { name: form.type, alias: choice_tree }

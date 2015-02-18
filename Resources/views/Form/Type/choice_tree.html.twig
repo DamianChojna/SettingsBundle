@@ -1,0 +1,36 @@
+{% block choice_tree_row %}
+    {% spaceless %}
+        <li class="tree-branch {% if errors|length %} error{% endif %}">
+            <label>
+                {{ form_label(form) }}
+            </label>
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+        </li>
+    {% endspaceless %}
+{% endblock %}
+
+{% block choice_tree_rows -%}
+    {% for child in form %}
+        {{- form_row(child) -}}
+    {% endfor %}
+{%- endblock %}
+
+{% block choice_tree_widget -%}
+    {% if expanded %}
+        {{- block('choice_tree_widget_expanded') -}}
+    {% else %}
+        {{- block('choice_collapsed') -}}
+    {% endif %}
+{%- endblock %}
+
+{% block choice_tree_widget_expanded -%}
+    <ul {{ block('widget_container_attributes') }}>
+    {%- for child in form %}
+        <li class="tree-item">
+            {{- form_widget(child) -}}
+            {{- form_label(child) -}}
+        </li>
+    {% endfor -%}
+    </ul>
+{% endblock %}

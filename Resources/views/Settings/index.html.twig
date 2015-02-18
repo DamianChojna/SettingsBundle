@@ -1,0 +1,42 @@
+{% extends 'DtLayoutBundle::layout.html.twig' %}
+{% form_theme form with [
+    'DtSettingsBundle:Form/Type:choice_tree.html.twig',
+    'DtSettingsBundle:Form:tree.html.twig'
+]%}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+    '@DtSettingsBundle/Resources/public/css/settings.css'
+    %}
+    <link href="{{ asset(asset_url) }}" rel="stylesheet" media="screen"/>
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+    '@DtSettingsBundle/Resources/public/js/settings.js'
+    %}
+    <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
+    {% endjavascripts %}
+{% endblock javascripts %}
+
+{% block page_content -%}
+
+    {{ form(form) }}
+    
+    <div class="ui divided ordered list">
+        <div class="item">Cats</div>
+        <div class="item">Horses</div>
+        <div class="item">Dogs
+            <div class="list">
+                <div class="item">Labradoodles</div>
+                <div class="item">Shiba Inu</div>
+                <div class="item">Mastiff</div>
+            </div>
+        </div>
+        <div class="item">Horses Again</div>
+    </div>
+    
+{% endblock %}    

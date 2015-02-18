@@ -1,0 +1,19 @@
+{% block dt_settingsbundle_tree_widget -%}
+    {% if compound %}
+        {{- block('dt_settingsbundle_tree_widget_compound') -}}
+    {% else %}
+        {{- block('form_widget_simple') -}}
+    {% endif %}
+{%- endblock %}
+
+
+
+{% block dt_settingsbundle_tree_widget_compound -%}
+    <ul {{ block('widget_container_attributes') }}>
+        {%- if form.parent is empty -%}
+            {{ form_errors(form) }}
+        {%- endif -%}
+        {{- block('form_rows') -}}
+        {{- form_rest(form) -}}
+    </ul>
+{%- endblock %}

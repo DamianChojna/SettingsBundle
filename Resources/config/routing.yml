@@ -1,0 +1,7 @@
+dt_settings_homepage:
+    path:     /
+    defaults: { _controller: DtSettingsBundle:Settings:index }
+
+dt_settings_edit:
+    path:     /
+    defaults: { _controller: DtSettingsBundle:Settings:index }    
